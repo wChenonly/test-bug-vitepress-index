@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist",
+    "declaration": true,
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "strict": true,
+    "target": "ESNext",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "moduleResolution": "Node",
+    "lib": ["ESNext", "dom"]
+  }
+}

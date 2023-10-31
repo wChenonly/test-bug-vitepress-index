@@ -1,0 +1,72 @@
+{
+  "name": "utils",
+  "version": "1.0.0",
+  "packageManager": "pnpm@8.10.0",
+  "description": "工具库",
+  "type": "module",
+  "keywords": [
+    "tool",
+    "utils",
+    "ts",
+    "TypeScript"
+  ],
+  "homepage": "https://github.com/wChenonly/test-bug-vitepress-index",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wChenonly/test-bug-vitepress-index"
+  },
+  "author": "wChenonly",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*",
+        "./dist/index.d.ts"
+      ]
+    }
+  },
+  "sideEffects": false,
+  "scripts": {
+    "dev": "nr build:bundle --watch",
+    "clean": "rimraf dist && rimraf .vitepress/dist",
+    "docs:dev": "tsx ./scripts/writeSideBar.ts && vitepress dev --host --base /wtest/utils/",
+    "docs:build": "rimraf .vitepress/dist && tsx ./scripts/writeSideBar.ts && vitepress build --base /wtest/utils/",
+    "docs:serve": "nr docs:build && vitepress serve",
+    "build": "nr clean && nr build:bundle && nr docs:build",
+    "build:bundle": "tsup src/index.ts --dts --format cjs,esm --clean --shims --out-dir dist",
+    "prepublishOnly": "nr build",
+    "preinstall": "npx only-allow pnpm"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@antfu/ni": "^0.21.8",
+    "@types/node": "^20.8.10",
+    "esbuild": "^0.19.5",
+    "fast-glob": "^3.3.1",
+    "happy-dom": "^12.10.3",
+    "nano-staged": "^0.8.0",
+    "prettier": "^3.0.3",
+    "rimraf": "^5.0.5",
+    "simple-git-hooks": "^2.9.0",
+    "tsup": "^7.2.0",
+    "tsx": "^3.14.0",
+    "typescript": "^5.2.2",
+    "vite": "^4.5.0",
+    "vitepress": "^1.0.0-rc.24",
+    "vue": "^3.3.7"
+  },
+  "engines": {
+    "node": "^14.18.0 || >=16.0.0"
+  }
+}
