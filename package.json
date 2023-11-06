@@ -38,14 +38,12 @@
   },
   "sideEffects": false,
   "scripts": {
-    "dev": "nr build:bundle --watch",
-    "clean": "rimraf dist && rimraf .vitepress/dist",
     "docs:dev": "tsx ./scripts/writeSideBar.ts && vitepress dev --host --base /wtest/utils/",
     "docs:build": "rimraf .vitepress/dist && tsx ./scripts/writeSideBar.ts && vitepress build --base /wtest/utils/",
     "docs:serve": "nr docs:build && vitepress serve",
+    "clean": "rimraf dist && rimraf .vitepress/dist",
     "build": "nr clean && nr build:bundle && nr docs:build",
     "build:bundle": "tsup src/index.ts --dts --format cjs,esm --clean --shims --out-dir dist",
-    "prepublishOnly": "nr build",
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {},

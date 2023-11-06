@@ -19,3 +19,5 @@ dist
 **/site-dist
 changelog.generated.md
 stats.html
+.vitepress/dist
+.vitepress/cache
